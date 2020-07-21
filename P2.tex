@@ -6,6 +6,49 @@ Outro Integrante - Número USP:12345678}
 \date{20 de Junho de 2020}
 \begin{document}
 \maketitle
+\setcounter{section}{2}
+\section{Árvores}
 
-qualquer coisa
+\begin{definition}
+  Uma \emph{árvore} é um conjunto ordenado \((T,\leq)\) tal que:
+  \begin{enumerate}[(i)]
+  \item \(T\) possui um menor elemento;
+  \item para cada \(x\in T\), o conjunto \(\{y\in T\,\colon y<x\}\) é bem
+    ordenado sob \(\leq\).
+  \end{enumerate}
+\end{definition}
+
+Os elementos de \(T\) são chamados de \emph{nós}. Se \(x,y\in T\) e \(y<x\),
+dizemos que \(y\) é um \emph{antecessor} de \(x\) e que \(x\) é um
+\emph{sucessor} de \(y\). O menor elemento de \(T\) é chamado de \emph{raíz}.
+Pelo Teorema 3.1 do Capítulo 6, o conjunto bem ordenado \(\{y\in T\,\colon
+y<x\}\) de todos os antecessores de \(x\) é isomorfo a um único número ordinal
+\(h(x)\), a \emph{altura} de \(x\). O conjunto \(T_\alpha=\{x\in T \,\colon
+h(x)=\alpha\}\) é o \(\alpha\)-ésimo nível de \(T\). Se \(h(x)\) is é um ordinal
+sucessor, então dizemos que \(x\) é um \emph{nó sucessor}, caso contrário
+\(x\) é um \emph{nó limite}. O menor \(\alpha\) tal que \(T_\alpha=\varnothing\)
+é a \emph{altura} \(h(T)\) da árvore \(T\). 
+
+
+Um \emph{ramo} de \(T\) é uma cadeia maximal em \(T\). O tipo da ordem
+de um ramo \(b\) é o \emph{comprimento} \(\ell(b)\) de \(b\) (sempre menor ou
+igual à altura de \(T\)). Um ramo cujo comprimento é igual a \(h(T)\) é chamado
+de \emph{cofinal}.
+
+Um subconjunto \(T^\prime\) de \(T\) é uma subárvore de \(T\) se para quaisquer
+\(x\in T^\prime\) e \(y\in T\) temos que \(y<x\) implica que \(y\in T^\prime\).
+Sendo assim, \(T^\pime\) também é uma árvore (quando ordenada por \(\leq\)) e
+\(T_\alpha^\prime= T_\alpha \cap T^\prime\) para cada \(\alpha < h(T^\prime)\).
+O conjunto \(T^{(\alpha)}=\bigcup_{\beta < \alpha} T_\beta\) é uma subárvore de
+\(T\), para cada \(\alpha\leq h(T)\), e \(h(T^{\alpha})=\alpha\). Se \(x\in
+T_\alpha\) então \(\{y\in T\,\colon y < x\}\) é um ramo de \(T^{(\alpha)}\) de
+comprimento \(\alpha\); entretanto, se \(\alpha\) é um ordinal limite então
+\(T^{(\alpha)}\) pode ter outros ramos de comprimento \(\alpha\).
+
+Finalmente, um conjunto \(A\subseteq T\) é uma \emph{anticadeia} em \(T\) se
+quaisquer elementos de \(A\) são incomparáveis. Isto é, se \(x,y\in A\) são tais
+que \(x\not = y\), então \(x\not < y\) e \(y\not < x\).
+
+  
+
 \end{document}
