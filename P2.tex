@@ -24,7 +24,7 @@ dizemos que \(y\) é um \emph{antecessor} de \(x\) e que \(x\) é um
 Pelo Teorema 3.1 do Capítulo 6, o conjunto bem ordenado \(\{y\in T\,\colon
 y<x\}\) de todos os antecessores de \(x\) é isomorfo a um único número ordinal
 \(h(x)\), a \emph{altura} de \(x\). O conjunto \(T_\alpha=\{x\in T \,\colon
-h(x)=\alpha\}\) é o \(\alpha\)-ésimo nível de \(T\). Se \(h(x)\) is é um ordinal
+h(x)=\alpha\}\) é o \(\alpha\)-ésimo \emph{nível} de \(T\). Se \(h(x)\) is é um ordinal
 sucessor, então dizemos que \(x\) é um \emph{nó sucessor}, caso contrário
 \(x\) é um \emph{nó limite}. O menor \(\alpha\) tal que \(T_\alpha=\varnothing\)
 é a \emph{altura} \(h(T)\) da árvore \(T\). 
@@ -35,9 +35,9 @@ de um ramo \(b\) é o \emph{comprimento} \(\ell(b)\) de \(b\) (sempre menor ou
 igual à altura de \(T\)). Um ramo cujo comprimento é igual a \(h(T)\) é chamado
 de \emph{cofinal}.
 
-Um subconjunto \(T^\prime\) de \(T\) é uma subárvore de \(T\) se para quaisquer
+Um subconjunto \(T^\prime\) de \(T\) é uma \emph{subárvore} de \(T\) se para quaisquer
 \(x\in T^\prime\) e \(y\in T\) temos que \(y<x\) implica que \(y\in T^\prime\).
-Sendo assim, \(T^\pime\) também é uma árvore (quando ordenada por \(\leq\)) e
+Sendo assim, \(T^\prime\) também é uma árvore (quando ordenada por \(\leq\)) e
 \(T_\alpha^\prime= T_\alpha \cap T^\prime\) para cada \(\alpha < h(T^\prime)\).
 O conjunto \(T^{(\alpha)}=\bigcup_{\beta < \alpha} T_\beta\) é uma subárvore de
 \(T\), para cada \(\alpha\leq h(T)\), e \(h(T^{\alpha})=\alpha\). Se \(x\in
@@ -47,8 +47,41 @@ comprimento \(\alpha\); entretanto, se \(\alpha\) é um ordinal limite então
 
 Finalmente, um conjunto \(A\subseteq T\) é uma \emph{anticadeia} em \(T\) se
 quaisquer elementos de \(A\) são incomparáveis. Isto é, se \(x,y\in A\) são tais
-que \(x\not = y\), então \(x\not < y\) e \(y\not < x\).
+que \(x\not = y\), então \(x\not < y\) e \(y\not < x\). A seguir, vamos fazer os
+Exercícios sugeridos pelo autor:
+\begin{exercicio}
+  Seja \((T,\leq)\) uma árvore. Mostre que:
+  \begin{enumerate}[(i)]
+  \item O único elemento \(r\in T\) tal que \(h(r)=0\) é a raíz. Em particular,
+    \(T_0\not=\varnothing\);
+  \item Se \(\alpha\not = \beta\), então \(T_\alpha\cap T_\beta =\varnothing\);
+  \item \(T=T^{(h(T))}=\bigcup_{\alpha\leq h(T)}T\alpha\);
+  \item \(x\in T\) é um nó sucessor se, e somente se existe \(y\in T\) tal que
+    \(y < x\) e não existe \(z\) tal que \(y<z<x\). Se \(x\) é um nó sucessor
+    então tal \(y\) é único e é chamado de \emph{antecessor imediato} de \(x\),
+    e \(x\) é chamado de \emph{sucessor imediato} de \(y\). (Cada nó possui um
+    único antecessor imediato, mas pode possuir múltiplos sucessores imediatos)
+    \item Se \(y< x\) então existe um único \(z\in T\) tal que \(x< x\leq y\) e
+      \(z\) é um sucessor imediato de \(x\);
+    \item \(h(T)=\sup\{\alpha +1\,\colon
+      T_\alpha\not=\varnothing\}=\sup\{h(x)+1\,\colon x\in T\}.\)
+  \end{enumerate}
 
-  
+\end{exercicio}
 
+  \begin{exercicio}
+    Mostre que:
+    \begin{enumerate}[(i)]
+    \item Cada cadeia em \(T\) é bem-ordenada;
+    \item Se \(b\) é um ramo de \(T\) e \(x\in b\), e \(y<x\), então \(y\in b\);
+    \item Se \(b\) é um ramo em \(T\), então \(\card{b\cap T_\alpha}=1\) para
+      \(\alpha <\ell (b)\) e \(\card{b\cap T_\alpha}=0\) para \(\alpha
+      >\ell (b)\). Conclua que \(\ell (b)\leq h(T)\);
+    \item \(h(T)=\sup\{\ell (b)\,\colon b \text{ é um ramo de } T\}\);
+    \item \(T_\alpha\) é uma anticadeia para cada \(\alpha < h(T)\).
+     \end{enumerate}
+  \end{exercicio}
+
+
+ 
 \end{document}
