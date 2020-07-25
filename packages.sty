@@ -1,12 +1,11 @@
 
 %------------------- General ---------------------%
 
-\usepackage[english]{babel} 
+\usepackage[portuguese]{babel} 
 \usepackage[utf8]{inputenc} 
 \usepackage[T1]{fontenc} 
 \usepackage{hyperref}
 \usepackage{verbatim}
-\usepackage{natbib}
 % ------------------ Math -------------------------%
 
 \usepackage{mathtools}
@@ -142,14 +141,13 @@
 
 %%% ----------------------------------- Theorems -------------------------%%
 
-
 \theoremstyle{definition}
-\newtheorem{theorem}{Theorem}
+\newtheorem{theorem}{Theorem}[section]
 
 \newtheorem{bonus}{Bônus}
-\newtheorem{exercicio}[theorem]{Exercício}
+\newtheorem{exercicio}{Exercício}[section]
 
-\newtheorem{definition}{Definição}
+\newtheorem{definition}[theorem]{Definição}
 
 \newtheorem*{remark}{Remark}
-\newtheorem*{example}{Example}
+\newtheorem{exemplo}[theorem]{Exemplo}

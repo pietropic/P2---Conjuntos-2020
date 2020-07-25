@@ -1,75 +1,137 @@
 \documentclass[a4paper]{article}
 \usepackage{packages}
+\usepackage{cite}
 \title{Introdução à Teoria dos Conjuntos - Prova 2}
 \author{Ariel Serranoni Soares da Silva  - Número USP: 7658024\\
 Outro Integrante - Número USP:12345678}
-\date{20 de Junho de 2020}
+\date{\today}
 \begin{document}
 \maketitle
+\section*{Observações iniciais}
+
+As notas de aula a seguir foram produzidas com base na Seção 3 do Capítulo 12 de
+\cite{jech}. A ideia do nosso trabalho é seguir fielmente o conteúdo abordado no
+livro, inclusive mantendo a notação e numeração que são usados pelo autor.
+Além disso, vamos incluir observações, soluções para os exercícios, e justificar
+passos que ficaram em segundo plano na abordagem do livro.
+
 \setcounter{section}{2}
 \section{Árvores}
-
 \begin{definition}
   Uma \emph{árvore} é um conjunto ordenado \((T,\leq)\) tal que:
-  \begin{enumerate}[(i)]
+ \begin{enumerate}[(i)]
   \item \(T\) possui um menor elemento;
   \item para cada \(x\in T\), o conjunto \(\{y\in T\,\colon y<x\}\) é bem
     ordenado sob \(\leq\).
   \end{enumerate}
 \end{definition}
+Os elementos de \(T\) são chamados de \emph{nós}. Em particular,
+o menor elemento de \(T\) é chamado  de \emph{raíz}.
+Se \(x,y\in T\) são nós tais que  \(y<x\), dizemos que \(y\) é um
+\emph{antecessor} de \(x\) e que \(x\) é um \emph{sucessor} de \(y\).
 
-Os elementos de \(T\) são chamados de \emph{nós}. Se \(x,y\in T\) e \(y<x\),
-dizemos que \(y\) é um \emph{antecessor} de \(x\) e que \(x\) é um
-\emph{sucessor} de \(y\). O menor elemento de \(T\) é chamado de \emph{raíz}.
-Pelo Teorema 3.1 do Capítulo 6, o conjunto bem ordenado \(\{y\in T\,\colon
-y<x\}\) de todos os antecessores de \(x\) é isomorfo a um único número ordinal
-\(h(x)\), a \emph{altura} de \(x\). O conjunto \(T_\alpha=\{x\in T \,\colon
-h(x)=\alpha\}\) é o \(\alpha\)-ésimo \emph{nível} de \(T\). Se \(h(x)\) is é um ordinal
-sucessor, então dizemos que \(x\) é um \emph{nó sucessor}, caso contrário
-\(x\) é um \emph{nó limite}. O menor \(\alpha\) tal que \(T_\alpha=\varnothing\)
-é a \emph{altura} \(h(T)\) da árvore \(T\). 
+Seja \(x\in T\) um nó.  A \emph{altura} \(h(x)\) de \(x\) é o único ordinal
+isomorfo ao conjunto bem ordenado \mbox{\(\{y\in T\,\colon
+y<x\}\),} composto por todos os antecessores de \(x\). Observe que o Teorema 3.1
+do Capítulo 6 garante que a altura está bem-definida como função em \(T\).
+Além disso, se \(h(x)\) é um ordinal sucessor, dizemos que \(x\) é um
+\emph{nó sucessor}. Caso contrário \(x\) é denominado \emph{nó limite}.
+O \(\alpha\)-ésimo \emph{nível} de \(T\) é o conjunto
+\(T_\alpha=\{x\in T \,\colon h(x)=\alpha\}\). A \emph{altura} \(h(T)\) da árvore
+\(T\) é o menor ordinal \(\alpha\) tal que \(T_\alpha=\varnothing\).  
 
+Um \emph{ramo} \(b\) de \(T\) é uma cadeia maximal em \(T\).  O \emph{comprimento}
+\(\ell(b)\) de um ramo \(b\) é o tipo da ordem de \(b\). Note que para
+todo ramo \(b\) de \(T\) temos \(\ell (b)\leq h(T)\).
+Um ramo cujo comprimento é igual a \(h(T)\) é chamado de \emph{cofinal}.
+Uma \emph{subárvore} \(T^\prime\) de \(T\) é um subconjunto
+\(T^\prime\subseteq T\) tal que, para quaisquer \(x\in T^\prime\) e \(y\in T\),
+temos que \(y<x\) implica \(y\in T^\prime\).
+Sendo assim, \(T^\prime\) também é uma árvore quando ordenada por \(\leq\).
+Ademais, para cada \(\alpha < h(T^\prime)\) temos que o \(\alpha\)-ésimo nível
+de \(T^\prime\) é dado por \(T_\alpha^\prime= T_\alpha \cap T^\prime\).
 
-Um \emph{ramo} de \(T\) é uma cadeia maximal em \(T\). O tipo da ordem
-de um ramo \(b\) é o \emph{comprimento} \(\ell(b)\) de \(b\) (sempre menor ou
-igual à altura de \(T\)). Um ramo cujo comprimento é igual a \(h(T)\) é chamado
-de \emph{cofinal}.
-
-Um subconjunto \(T^\prime\) de \(T\) é uma \emph{subárvore} de \(T\) se para quaisquer
-\(x\in T^\prime\) e \(y\in T\) temos que \(y<x\) implica que \(y\in T^\prime\).
-Sendo assim, \(T^\prime\) também é uma árvore (quando ordenada por \(\leq\)) e
-\(T_\alpha^\prime= T_\alpha \cap T^\prime\) para cada \(\alpha < h(T^\prime)\).
-O conjunto \(T^{(\alpha)}=\bigcup_{\beta < \alpha} T_\beta\) é uma subárvore de
-\(T\), para cada \(\alpha\leq h(T)\), e \(h(T^{\alpha})=\alpha\). Se \(x\in
-T_\alpha\) então \(\{y\in T\,\colon y < x\}\) é um ramo de \(T^{(\alpha)}\) de
+ Para cada \(\alpha\leq h(T)\), o conjunto \(T^{(\alpha)}=\bigcup_{\beta <
+   \alpha} T_\beta\) é uma subárvore de \(T\) com  \(h(T^{(\alpha)})=\alpha\).
+ Se \(x\in T_\alpha\) então \(\{y\in T\,\colon y < x\}\) é um ramo de \(T^{(\alpha)}\) de
 comprimento \(\alpha\); entretanto, se \(\alpha\) é um ordinal limite então
 \(T^{(\alpha)}\) pode ter outros ramos de comprimento \(\alpha\).
 
 Finalmente, um conjunto \(A\subseteq T\) é uma \emph{anticadeia} em \(T\) se
 quaisquer elementos de \(A\) são incomparáveis. Isto é, se \(x,y\in A\) são tais
-que \(x\not = y\), então \(x\not < y\) e \(y\not < x\). A seguir, vamos fazer os
-Exercícios sugeridos pelo autor:
+que \(x\not = y\), então \(x\not \leq y\) e \(y\not \leq x\).
+
+A respeito dos conceitos introduzidos acima, é importante observar que todo
+ramo e subárvore de \(T\) contém a raiz. Também notamos que se \(x,y\in T\)
+são nós tais que \(y< x\), então \(h(y) <h(x)\). A seguir, vamos resolver os
+exercícios sugeridos pelo autor neste ponto do texto em \cite{jech},
+que exploram algumas das propriedades que surgem imediatamente das
+definições que apresentamos:
+
 \begin{exercicio}
   Seja \((T,\leq)\) uma árvore. Mostre que:
   \begin{enumerate}[(i)]
-  \item O único elemento \(r\in T\) tal que \(h(r)=0\) é a raíz. Em particular,
-    \(T_0\not=\varnothing\);
-  \item Se \(\alpha\not = \beta\), então \(T_\alpha\cap T_\beta =\varnothing\);
-  \item \(T=T^{(h(T))}=\bigcup_{\alpha\leq h(T)}T\alpha\);
-  \item \(x\in T\) é um nó sucessor se, e somente se existe \(y\in T\) tal que
-    \(y < x\) e não existe \(z\) tal que \(y<z<x\). Se \(x\) é um nó sucessor
-    então tal \(y\) é único e é chamado de \emph{antecessor imediato} de \(x\),
-    e \(x\) é chamado de \emph{sucessor imediato} de \(y\). (Cada nó possui um
-    único antecessor imediato, mas pode possuir múltiplos sucessores imediatos)
-    \item Se \(y< x\) então existe um único \(z\in T\) tal que \(x< x\leq y\) e
-      \(z\) é um sucessor imediato de \(x\);
+  \item O único elemento \(r \in T\) tal que \(h(r)=0\) é a raíz. Em particular,
+    \(T_0\not =\varnothing\);
+  \item Se \(\alpha,\beta\) são ordinais tais que \(\alpha\not = \beta\), então \(T_\alpha\cap T_\beta =\varnothing\);
+  \item \(T=T^{(h(T))}=\bigcup_{\alpha < h(T)}T_\alpha\);
+  \item \(x\in T\) é um nó sucessor se, e somente se existe um único \(y\in T\) tal que
+    \begin{equation}\label{propsuc}
+      y < x \text{ e não existe } z \text{ tal que } y<z<x.
+    \end{equation}
+    Se \(x\) é um nó sucessor então o nó
+    \(y\) que satisfaz \ref{propsuc}  é chamado de \emph{antecessor imediato} de
+    \(x\), e dizemos que \(x\) é \emph{sucessor imediato} de \(y\).
+    Note que cada nó sucessor possui um único antecessor imediato,
+    mas pode possuir múltiplos sucessores imediatos;
+    \item Se \(y< x\) então existe um único \(z\in T\) tal que \(y< z\leq x\) e
+      \(z\) é um sucessor imediato de \(y\);
     \item \(h(T)=\sup\{\alpha +1\,\colon
       T_\alpha\not=\varnothing\}=\sup\{h(x)+1\,\colon x\in T\}.\)
   \end{enumerate}
 
 \end{exercicio}
+\textcolor{red}{Ariel S. : Falta provar a volta do item (iv)! As outras que
+  estão faltando acho que sei fazer.}
+\begin{proof}[Solução]\hfill
+  \begin{enumerate}[(i)]
+  \item Por definição, \(T\) possui um menor
+    elemento, o que implica que \(T\) possui uma raíz \(r\). Para verificar a
+    unicidade de \(r\), suponha que \(T\) possui duas raízes \(r_1\) e \(r_2\)
+    distintas. Neste caso,  para todo \(x\in T\) temos que
+    \(r_1\leq x\). Em particular temos que
+    \(r_1\leq r_2\). Analogamente, obtemos que \(r_2\leq r_1\). Como \(\leq\) é
+    uma ordem, segue que \(r_1=r_2\), contradição. Finalmente, notando que
+    como \(r\) é o menor elemento de \(T\), segue que \(\{x\in T\,\colon
+    x<r\}=\varnothing\), o que implica que \(h(r)=0\). Assim concluímos que
+    \(r\in T_0\) e logo \(T_0\not=\varnothing\).
+  \item Suponha que existe \(x\in T_\alpha\cap T_\beta\). Neste caso, temos que
+    \(\alpha=h(x)=\beta\), o que contradiz a unicidade de \(h(x)\).
+  \item Para a primeira igualdade, note que \(T^{(h(T))}\subseteq T\) uma vez
+    que \(T^{(h(T))}\) é definido como uma união de subconjuntos de \(T\). Por
+    outro lado, seja \(x\in T\) e suponha que \(x\not\in T^{(h(T))}\). Daí,
+    segue que não existe \(\alpha < h(T)\) tal que \(h(x)=\alpha\). Isso implica
+    que \(h(x)\geq h(T)\), absurdo.
 
-  \begin{exercicio}
+    Já a segunda igualdade segue diretamente da definição de \(T^{(h(T))}\). 
+
+  \item Suponha que \(x\) é um nó sucessor. Neste caso, temos por definição
+    que \(h(x)=S(\alpha)\) para algum ordinal \(\alpha\). Vamos mostrar que
+    \(T_\alpha\) é não vazio. Assumindo o contrário, teremos que
+    \(h(x)>\alpha\geq h(T)\), que é um absurdo. Além disso,
+    se  existe \(z\) tal que \(y<z<x\), então
+    \[h(y)=\alpha<h(z)<S(\alpha)=h(x),\] absurdo. Finalmente, suponha que
+    existem \(y_1\)
+    e \(y_2\) tais que \(h(y_1)=h(y_2)=\alpha\), neste caso o conjunto \(S=\{w\in
+    T\,\colon w <x\}\) não é bem ordenado pois o subconjunto
+    \(\{y_1,y_2\}\not = \varnothing\) de \(S\) não possui um menor elemento.
+  \item Seja \(\alpha=h(x)\) e considere a subárvore \(T^{(\alpha)}\) de \(T\).
+    Seja \(b=\{w \in T \,\colon w<x\}\) e recorde que \(b\) ramo de
+    \(T^{(\alpha)}\) por definição.... 
+  \item 
+  \end{enumerate}
+\end{proof}
+\begin{exercicio}
     Mostre que:
     \begin{enumerate}[(i)]
     \item Cada cadeia em \(T\) é bem-ordenada;
@@ -81,7 +143,32 @@ Exercícios sugeridos pelo autor:
     \item \(T_\alpha\) é uma anticadeia para cada \(\alpha < h(T)\).
      \end{enumerate}
   \end{exercicio}
+  \begin{proof}[Solução]\hfill
+    \begin{enumerate}[(i)]
+      \item  Seja \(C\subseteq T\) uma cadeia e suponha que existe
+        \(\varnothing\not = S\subseteq
+        C\) tal que \(S\) não possui um menor elemento. Neste caso, para cada
+        \(y\in S\), existe \(x\in S\) tal que \(y <x\).
+      \item um ramo é bem-ordenado e maximal...
+      \item
+    \end{enumerate}
+  \end{proof}
 
-
- 
+  Agora vamos olhar para alguns exemplos de árvores:
+  \begin{exemplo}\hfill
+    \begin{enumerate}[(a)]
+    \item Todo conjunto bem-ordenado \((W,\leq)\) é uma árvore. Sendo assim,
+      podemos pensar em árvores como generalizações de boas ordens. A altura
+      \(h(W)\) é o tipo de ordem de \(W\), o único ramo de \(W\) é o próprio
+      \(W\), que é cofinal.
+    \item Seja \(\lambda\) um número ordinal e seja \(A\) um conjunto não-vazio.
+      Defina \(A^{< \lambda}=\bigcup_{\alpha < \lambda} A^\alpha\) como o
+      conjunto de todas as sequências transfinitas de elementos de \(A\) com
+      comprimento menor que \(\lambda\). Considere \(T=A^{< \lambda}\) e o ordene
+      segundo \(\subseteq\), de modo para \(f,g\in T\), temos \(f\leq g\) se, e
+      somente se \(f\subseteq g\). Isto é \(f=\rest{g}{\dom(f)}\).
+    \end{enumerate}
+  \end{exemplo}
+  \bibliographystyle{plain}
+  \bibliography{sample}
 \end{document}
