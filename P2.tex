@@ -1,6 +1,32 @@
 \documentclass[a4paper]{article}
 \usepackage{packages}
 \usepackage{cite}
+\usepackage{hyperref}
+\hypersetup{
+    pdftoolbar=true,
+    pdfmenubar=true,
+    pdffitwindow=false,
+    pdfstartview={FitH},
+    pdftitle={TITOLO },
+    pdfauthor={AUTORI},
+    pdfsubject={ARGOMENTO},
+    pdfkeywords={},
+    pdfnewwindow=true,
+    colorlinks=true, %set this false for printable version
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue,
+}
+
+\theoremstyle{plain}\newtheorem{teo}{Teorema}[section]
+\theoremstyle{plain}\newtheorem{prop}[teo]{Proposição}
+\theoremstyle{plain}\newtheorem{lem}[teo]{Lema}
+\theoremstyle{plain}\newtheorem{cor}[teo]{Corolário}
+\theoremstyle{definition}\newtheorem{defi}[teo]{Definição}
+\theoremstyle{remark}\newtheorem{rem}[teo]{Observação}
+\theoremstyle{definition}\newtheorem{example}[teo]{Exemplo}
+\theoremstyle{remark}\newtheorem{step}{\bf Step}
+
 \title{Introdução à Teoria dos Conjuntos - Prova 2}
 \author{Ariel Serranoni Soares da Silva  - Número USP: 7658024\\
 Outro Integrante - Número USP:12345678}
@@ -94,6 +120,7 @@ definições que apresentamos:
 \textcolor{red}{Ariel S. : Falta provar a volta do item (iv)! As outras que
   estão faltando acho que sei fazer.}
 \begin{proof}[Solução]\hfill
+\label{ex31-iv}
   \begin{enumerate}[(i)]
   \item Por definição, \(T\) possui um menor
     elemento, o que implica que \(T\) possui uma raíz \(r\). Para verificar a
@@ -169,6 +196,19 @@ definições que apresentamos:
       somente se \(f\subseteq g\). Isto é \(f=\rest{g}{\dom(f)}\).
     \end{enumerate}
   \end{exemplo}
+  \begin{teo}[Lema de König]
+  Se $T$ é uma árvore de altura $\omega$, com todos os níveis finitos, então T admite um ramo de altura $\omega$.
+  \end{teo}
+  \begin{proof}
+  Equivalentemente, temos que provar que, toda árvore de altura $\omega$, tal que cada nó tem um numero finito de sucessores imediatos, tem um ramo infinito.
+  De fato vamos construir, com recursão, uma sequência(infinita) $\langle c_n\rangle_{n=0}^{\infty}$ de nós de $T$ tal que, para todo $n$, $\{a\in T: c_n\leq a\}$ é infinito. Pelo exercício \ref{ex31-iv}
+  $$
+  \{a\in T: c_n\leq a\} = \{c_n\} \cup\bigcup_{b\in S} \{a\in T: b\leq a\}
+  $$
+  onde $S$ é o conjunto dos sucessores imediatos de $c_n$. Logo, para pelo menos um $b\in S$, $\{a\in T: b\leq a\}$ é infinito, assim defina $c_{n+1}$ um tal $b$. 
+  Falta verificar que $\{a\in T: c_n\geq a \text{ para algum } n\}$ é um ramo de $T$ com altura $\omega$.
+  
+  \end{proof}
   \bibliographystyle{plain}
   \bibliography{sample}
 \end{document}
